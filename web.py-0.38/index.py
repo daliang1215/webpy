@@ -184,10 +184,6 @@ class login:
 	myvar = dict(username=username)
 	re = db.select('webuser',myvar,where="username=$username")
         if re[0]['password']==hashlib.md5(password).hexdigest():
-#	if password == re[0]['password'] :
-#	if "efeichn"==username and "123456"==password :
-	#	resp=urllib2.urlopen("http://www.pm25.in/api/querys/pm2_5.json?city=zhengzhou&token=CqzTEPD6j8izqdzzcbtK")
-	#	aqi=resp.read().split("{")[10].split(",")[0].split(":")[1]
 		rootdir="/mnt/disks/backup/mms_radio"
 		lst=sorted(os.listdir(rootdir))
 		#return render.ls(username,lst,rootdir)
