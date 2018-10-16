@@ -57,9 +57,6 @@ class dawning_ds:
     def GET(self):
 	return render.dawning_ds()
 
-
-
-
 class dawning_ds_dynamic:
     def GET(self):
 	return render.dawning_ds_dynamic()
@@ -175,7 +172,6 @@ class voice:
 	speech_path = "/mnt/disks/backup/speech/ifly/Linux_voice_1.109/samples/tts_sample"
 	shell = "/bin/echo "+txt+" > "+speech_path+"/speech.txt && cd "+speech_path+"; sh 32bit_make.sh"
 	os.system(shell)
-
 	return render.voice()
 
 class login:
@@ -257,7 +253,6 @@ class xbmclive:
 class demo:
     def GET(self):
         return render.all()
-
 
 def modify_password(user, pwd):
     #db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
