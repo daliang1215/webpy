@@ -166,13 +166,13 @@ class voice:
 	data = web.input()
 	txt = data.txt
 	if len(txt) == 0 :
-			raise web.seeother('/voice')
+		raise web.seeother('/voice')
 	else:				
-			txt="".join(txt.split());
-	speech_path = "/mnt/disks/backup/speech/ifly/Linux_voice_1.109/samples/tts_sample"
-	shell = "/bin/echo "+txt+" > "+speech_path+"/speech.txt && cd "+speech_path+"; sh 32bit_make.sh"
-	os.system(shell)
-	return render.voice()
+		txt="".join(txt.split());
+		speech_path = "/mnt/disks/backup/speech/ifly/Linux_voice_1.109/samples/tts_sample"
+		shell = "/bin/echo "+txt+" > "+speech_path+"/speech.txt && cd "+speech_path+"; sh 32bit_make.sh"
+		os.system(shell)
+		return render.voice()
 
 class login:
     def GET(self):
@@ -251,10 +251,7 @@ class demo:
         return render.all()
 
 def modify_password(user, pwd):
-    #db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
-    print user,pwd
     password=hashlib.md5(pwd).hexdigest()
-    print password 
     db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
     db.update('webuser',vars={'user':user},where="username=$user",password=password)
     return 0
