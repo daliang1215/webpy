@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<script type="text/javascript">
+function relink(status_name){
+        var xmlhttp;
+				var url = "http://192.168.88.10/zhuwo?state="+status_name ; 
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+            }
+          }
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+
+}
+</script> 
+</head>
+<body>
+
+<div align="center">
+	<a id="kai" href="javascript:void(0)" onclick="relink('kai')"><img width="35%"  src="/static/bootstrap/png/kai.png" alt="开"/></a>
+	<a id="guan" href="javascript:void(0)" onclick="relink('guan')"><img width="35%" src="/static/bootstrap/png/guan.png" alt="关"/></a>
+	<a id="ming" href="javascript:void(0)" onclick="relink('ming')"><img width="35%" src="/static/bootstrap/png/ming.png" alt="明"/></a>
+	<a id="an" href="javascript:void(0)" onclick="relink('an')"><img width="35%" src="/static/bootstrap/png/an.png" alt="暗"/></a>
+	<a id="riguangse" href="javascript:void(0)" onclick="relink('riguangse')"><img width="35%" src="/static/bootstrap/png/riguangse.png" alt="日光色"/></a>
+	<a id="nuanbaise" href="javascript:void(0)" onclick="relink('nuanbaise')"><img width="35%" src="/static/bootstrap/png/nuanbaise.png" alt="暖白色"/></a>
+	<a id="quanliang" href="javascript:void(0)" onclick="relink('quanliang')"><img width="35%" src="/static/bootstrap/png/quanliang.png" alt="全亮"/></a>
+	<a id="changyedeng" href="javascript:void(0)" onclick="relink('changyedeng')"><img width="35%" src="/static/bootstrap/png/changyedeng.png" alt="常夜灯"/></a>
+</div>			
+				<div id="myDiv"></div>
+
+</body>
+</html>

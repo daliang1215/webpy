@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>红外控制界面</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/b.tabs.css">
+<style type="text/css">
+div.menuSideBar { }
+div.menuSideBar li.nav-header { font-size: 16px; padding: 3px 15px; }
+div.menuSideBar .nav-list > li > a, div.menuSideBar .dropdown-menu li a { -webkit-border-radius: 0px; -moz-border-radius: 0px; -ms-border-radius: 0px; border-radius: 0px; }
+</style>
+
+</head>
+<body>
+
+<div class="content">
+<div class="container">
+<h3 class="page-header" align="center">红外控制管理界面</h3>
+<div class="">
+  <div class="row-fluid">
+    <div class="col-md-2" style="padding-left: 0px;">
+      <div class="well menuSideBar" style="padding: 8px 0px;">
+        <ul class="nav nav-list" id="menuSideBar">
+          <li class="nav-header">红外控制列表</li>
+          <li class="nav-divider"></li>
+          <li mid="tab1" funurl="/keting"><a tabindex="-1" href="javascript:void(0);">客厅</a></li>
+          <li mid="tab2" funurl="/zhuwo"><a tabindex="-1" href="javascript:void(0);">主卧</a></li>
+          <li mid="tab3" funurl="/ciwo"><a tabindex="-1" href="javascript:void(0);">次卧</a></li>
+          <li mid="tab4" funurl="/ciwo"><a tabindex="-1" href="javascript:void(0);">其他红外控制</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10" id="mainFrameTabs" style="padding : 0px;"> 
+      
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active noclose"><a href="#bTabs_navTabsMainPage" data-toggle="tab">首页</a></li>
+      </ul>
+      
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="bTabs_navTabsMainPage">
+          <div class="page-header">
+            <h2 style="font-size: 31.5px;text-align: center;font-weight: normal;">此红外管理界面负责客厅、主卧、次卧以及其他红外</h2>
+          </div>
+          <div style="text-align: left;font-size: 20px;line-height: 20px;"> 
+<dt >客厅</dt>
+	<dd >http://192.168.88.9/keting?state={kai,guan,ming,an,quanliang,changyedeng,nuanbaise,riguangse}</dd>
+<dt >主卧</dt>
+	<dd >http://192.168.88.10/zhuwo?state={kai,guan,ming,an,quanliang,changyedeng,nuanbaise,riguangse} </dd>
+<dt >次卧</dt>
+	<dd >http://192.168.88.11/ciwo?state={kai,guan,ming,an,quanliang,changyedeng,nuanbaise,riguangse} </dd>
+</dl>
+
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="/static/bootstrap/js/jquery.min.js"></script> 
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="/static/bootstrap/js/b.tabs.js" ></script> 
+<script type="text/javascript" src="/static/bootstrap/js/demo.js" ></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>Revision: Ver1.0</p>
+</div>
+</body>
+</html>

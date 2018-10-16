@@ -1,0 +1,803 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>曙光存储产品动态更新</title>
+	<script type="text/javascript" src="/static/js/jquery-1.4.3.js"></script>
+	<script type="text/javascript">
+		(function($$){
+    //插件
+    $$.extend($$,{
+        //命名空间
+        sortTable:{
+        	sort:function(tableId,Idx){
+        		var table = document.getElementById(tableId);
+        		var tbody = table.tBodies[0];
+        		var tr = tbody.rows;
+
+        		var trValue = new Array();
+        		for (var i=0; i<tr.length; i++ ) {
+                    trValue[i] = tr[i];  //将表格中各行的信息存储在新建的数组中
+                }
+
+                if (tbody.sortCol == Idx) {
+                    trValue.reverse(); //如果该列已经进行排序过了，则直接对其反序排列
+                } else {
+                    //trValue.sort(compareTrs(Idx));  //进行排序
+                    trValue.sort(function(tr1, tr2){
+                    	var value1 = tr1.cells[Idx].innerHTML;
+                    	var value2 = tr2.cells[Idx].innerHTML;
+                    	return value1.localeCompare(value2);
+                    });
+                }
+
+                var fragment = document.createDocumentFragment();  //新建一个代码片段，用于保存排序后的结果
+                for (var i=0; i<trValue.length; i++ ) {
+                	fragment.appendChild(trValue[i]);
+                }
+
+                tbody.appendChild(fragment); //将排序的结果替换掉之前的值
+                tbody.sortCol = Idx;
+            }
+        }
+    });          
+})(jQuery);
+</script>
+<style type="text/css">
+* {
+	padding:0;
+	margin:0;
+}
+
+body {
+	font-family:verdana;
+	font-size:12px;
+}
+
+.content {
+	width:550px;
+	margin:20px auto;
+}
+
+.content h1 {
+	font-family:'微软雅黑';
+	font-size:18px;
+	padding-bottom:5px;
+}
+
+table {
+	width:100%;
+}
+
+th, td {
+	padding:6px 0;
+	text-align:center;
+}
+
+th {
+	background-color:#007D28;
+	color:#ffffff;
+}
+
+tr {
+	background-color:#E8FFE8;
+}
+
+dd {
+	padding-left: 20px;
+}
+
+dt {
+	margin:5px 0px;
+}
+em {
+	padding-left: 35px; 
+}
+.odd {
+	background-color:#FFF3EE;
+}
+
+.highlight {
+	background-color:#FFF3EE;
+}
+
+</style>
+</head>
+
+<body>
+	<table summary="user infomation table" id="tableSort">
+		<thead>
+			<tr>
+				<th onclick="$$.sortTable.sort('tableSort',0)" style="cursor: pointer;width: 5%;">期号</th>
+				<th onclick="$$.sortTable.sort('tableSort',1)" style="cursor: pointer;width: 5%;">年份</th>
+				<th onclick="$$.sortTable.sort('tableSort',2)" style="cursor: pointer;width: 7%;">日期</th>
+				<th onclick="$$.sortTable.sort('tableSort',3)" style="cursor: pointer;width: 7%;">产品</th>
+				<th onclick="$$.sortTable.sort('tableSort',4)" style="cursor: pointer;width: 7%;">类别</th>
+				<th onclick="$$.sortTable.sort('tableSort',5)" style="cursor: pointer;width: auto;">内容</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>12</td>
+				<td>2017</td>
+				<td>2017-12-11</td>
+				<td>HyperStor100</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. 受IOM2停止供货影响，HyperStor100的产品BOM配置和描述已修改完毕，报价系统也同步更新，请使用修改后的配置下单，营销支持部也已采用更改后的配置核价。</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>2017</td>
+				<td>2017-12-11</td>
+				<td>DBStor100-U </td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. 受IOM2停止供货影响，DBStor100-U的产品BOM配置和描述已修改完毕，报价系统也同步更新，请使用修改后的配置下单，营销支持部也已采用更改后的配置核价。</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>2017</td>
+				<td>2017-12-11</td>
+				<td>磁盘阵列</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. DS800-G25（H）产品预停产，替代产品DS800-G35（H），老产品截单时间12月20日，请各位同事留意产品切换。</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>2017</td>
+				<td>2017-12-11</td>
+				<td>云存储</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. 由于Intel S3520 SATA SSD供货紧张，ParaStor项目中如有800GB、1.6TB SSD需求，请修改配置为960GB、1.92TB；</dt>
+						<dt>２. 之前已经备货的项目，请与采购部、商务部确定供货情况。</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>2017</td>
+				<td>2017-11-20</td>
+				<td>磁盘阵列</td>
+				<td>产品案例</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. DS800磁盘阵列中标北京地铁8号线项目，金额百万级别</dt>
+						<dt>２. DS900磁盘阵列中标中国信息通信研究院项目，金额百万级别</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>2017</td>
+				<td>2017-11-20</td>
+				<td>灾备</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1. DBStor100-U备份一体机
+						受IOM2停止供货影响，近期的DBStor100-U备份一体机，对外做配置报价，特别是签署合同时，不要体现“板载RAID ” ，删除“板载” 两字，以免影响后期验收。</dt>
+						<dd>替换方案，IOM30+RAID标卡，功能和参数无影响。</dd>
+
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>2017</td>
+				<td>2017-11-20</td>
+				<td>文档类</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. 存储产品线：控标参数更新至V2.2版本，详见OA存储产品资料-存储产品销售工具-存储产品控标参数集</dt>
+						<dt>２. 磁盘阵列</dt>
+						<dd>a. 磁盘阵列参数详表：存储产品资料-存储产品销售工具-曙光磁盘阵列参数详细列表</dd>
+						<dd>b. 竞品速查手册：存储产品资料-存储产品销售工具-存储产品竞品分析</dd>
+						<dd>c. DS900新产品售前PPT：存储产品资料-DS900</dd>
+						<dd>d. DS900新产品技术白皮书：存储产品资料-DS900</dd>
+						<dd>e. DS900案例列表：存储产品资料-DS900-方案素材库</dd>
+						<dd>f. DS900三盘校验RAID技术说明：存储产品资料-DS900-方案素材库</dd>
+						<dd>g. DS800案例列表：存储产品资料-DS800-方案素材库</dd>
+						<dt>３. 云存储</dt>
+						<dd>a. ParaStor同类产品参数对比V1.2，详见OA存储产品资料-ParaStor同类产品调研报告</dd>
+						<dd>b. ParaStor感谢信+使用证明</dd>
+						<dd>c. ParaStor Web界面截图-20170920</dd>
+						<dd>d. ParaStor详细参数列表V1.2</dd>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>2017</td>
+				<td>2017-11-20</td>
+				<td>存储服务器</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. 受IOM2供货影响，存储服务器S640-G20 SAS RAID配置需求将采用PCI-E 标卡+IOM30（集成双口千兆RJ45）的形态，原IOM2板载SAS RAID以及千兆网络的配置停止供货，具体信息请留意OA下发的产品变更通知！ </dt>
+
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>2017</td>
+				<td>2017-11-20</td>
+				<td>HyperStor100</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1. 当前产品预发布，产品资料也正在完善中，白皮书，售前PPT，配置表，招标参数，功能截图、用户手册等已经可以在OA存储产品资料中看到，公司报价系统也可以正常核价。
+						其它产品资料正在编写完善，会逐步放到OA中。请关注OA产品资料。路径如下：</dt>
+						<dd>	公司OA—产品管理—存储产品资料—HyperStor—HyperStor100系列ServerSAN存储</dd>
+
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>2017</td>
+				<td>2017-11-20</td>
+				<td>磁盘阵列</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1. 现有DS900-G10-8020/8040，DS900-G20-8060/8080即将停产，升级产品为DS900-G10-8200，DS900-G20-9000。
+							老产品项目报备截止时间为11月20日，下单截止时间为12月20日。
+							近期运作的DS900项目，如果预计12月20日前可下单，请务必于11月20日下班前将项目名称与详细配置邮件向产品经理报备（报备邮件请发送至weiran@sugon.com）；如果预计12月20日后下单，请改用新产品运作项目。
+						原有设备扩容项目可正常进行，不在本次停产范围内。</dt>
+						<dt>2. DS600-G20 SSD硬盘停产</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>2017</td>
+				<td>2017-10-30</td>
+				<td>云存储</td>
+				<td>产品案例</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1.HPC，福建省数字福建云计算运营有限公司，2oPara+15oStor，3PB+</dt>
+						<dt>2.视频监控，浙江省公安厅高速公路交通警察总队，2oPara+12oStor，2.5PB+</dt>
+						<dt>3.HPC（语音识别），科大讯飞，2oPara+7oStor，1PB</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>2017</td>
+				<td>2017-10-30</td>
+				<td>HyperStor100</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. HyperStor100产品用户手册上传至：
+						OA系统-产品管理-存储产品资料-HyperStor-HyperStor100系列ServerSAN存储，请自行下载查阅。</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>2017</td>
+				<td>2017-10-30</td>
+				<td>磁盘阵列</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>１. DS600-G20  SATA HDD 停产，SDD预停产，请关注此变化，配置硬盘时请特别注意。</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>2017</td>
+				<td>2017-09-16</td>
+				<td>云存储</td>
+				<td>产品案例</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1.HPC，中国科学院计算机网络信息中心，存储规模1PB
+
+						</dt>
+						<dt>2.卫星遥感，中国国土资源航空物探遥感中心，存储规模1PB</dt>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>2017</td>
+				<td>2017-09-16</td>
+				<td>HyperStor100</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1.HyperStor100预发布，目前已经可以正常报价。白皮书和售前PPT已上传到OA系统，请下载查阅 
+						</dt>
+						<dd>具体位置：OA系统-产品管理-存储产品资料-HyperStor-HyperStor100系列ServerSAN存储</dd>
+					</dl>			
+				</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>2017</td>
+				<td>2017-09-16</td>
+				<td>云存储</td>
+				<td>产品动态</td>
+				<td style="text-align: left;">
+					<dl>
+						<dt>1.ParaStor报价模式更新已有一段时间，再次强调：
+							NAS和POSIX应用场景二选一，NAS场景网络有内部和外部之分，内部网络必须配置，若客户现场有可用交换机，以备注形式告知核价专员，否则默认BOM中带出交换机（不清楚之处请联系产品经理）。详见OA系统->产品管理->存储产品资料->曙光ParaStor配置工具</dt>
+							<dt>2.CSTC软件产品技术鉴定测试报告已获取（之前宣称的赛迪报告 5GB/s性能指标）</dt>
+							<dt>3.公安三所GB28281检测报告已获取</dt>
+							<dt><em>注：两个报告获取位置为OA系统->产品管理->存储产品资料->ParaStor子目录->ParaStor资质汇总</em></dt>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>2017</td>
+					<td>2017-09-14</td>
+					<td>云存储</td>
+					<td>产品案例</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.教育 HPC，ParaStor中标浙江大学HPC项目，存储规模近4PB，金额过百万。</dt>
+							<dt>2.卫星遥感，ParaStor中标长光卫星技术有限公司卫星数据存储项目，存储规模1.5PB，金额过百万。</dt>
+							<dt>3.视频监控，ParaStor中标秭归县公安局视频监控存储项目，存储规模2PB，金额过百万。</dt>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>2017</td>
+					<td>2017-09-14</td>
+					<td>灾备</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.更新DBStor 100-U用户手册和投标截图证明，供大家学习和投标使用。</dt>
+							<dd>下载方式：在OA->产品管理->存储产品资料->备份容灾</dd>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>2017</td>
+					<td>2017-09-14</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.DS600-G20 SATA HDD磁盘预停产，替换为同等容量的NL-SAS磁盘，NL-SAS替换方案具有更好的稳定性，同时节约了SATA-SAS磁盘转接卡，成本更具有优势，中标未下单和即将中标，且配置SATA磁盘的DS600-G20项目，请与商务部联系进行项目备案，项目备案截止日期为2017年10月15日，对于未备案项目视情况予以协调，但无法保证能够供应。</dt>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>2017</td>
+					<td>2017-09-14</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.更新ParaStor300控标参数，增加”支持Amazon S3和OpenStack Swift接口，要求提供云测评证书“。</dt>
+							<dd>下载方式：OA系统->产品管理->存储产品资料->《存储产品控标参数集》</dd>
+							<dt>2.切换ParaStor300产品BOM为980001062，存储节点（OStor）分为NAS和POSIX类型，NAS存储节点的网络分为内部和外部，POSIX存储节点的网络仅有内部。</dt>
+							<dd>说明文档：OA系统->产品管理->存储产品资料->ParaStor->曙光ParaStor云存储配置工具->《ParaStor300 BOM说明》</dd>
+							<dt>3.更新ParaStor300配置及报价表模板，增加ParaStor300视频监控系统产品配置，请按照新的配置核价。</dt>
+							<dd>下载方式：OA系统->产品管理->存储产品资料->ParaStor->曙光ParaStor云存储配置工具->《ParaStor配置及报价表模板V1.2-20170828》</dd>
+							<dt>4.ParaStor300视频监控系统产品通过公安三所GB28181检测认证，检测报告拿到后通知大家。</dt>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>2017</td>
+					<td>2017-08-18</td>
+					<td>磁盘阵列</td>
+					<td>产品案例</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.北京胸科医院项目DS900中标，项目金额百万级别</dt>
+							<dt>2.福建长乐公安局项目DS800中标，项目金额百万级别
+							</dt>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>2017</td>
+					<td>2017-08-18</td>
+					<td>云存储</td>
+					<td>产品案例</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.气象环保，ParaStor中标国家气象局，存储规模近24PB。</dt>
+							<dt>2.生物基因，ParaStor中标中国科学研究院生物物理研究所，存储规模1PB。</dt>
+							<dt>3.视频监控，ParaStor累计中标宜昌2套视频云存储项目，单套存储金额百万级。</dt>
+							<dt>4.卫星遥感，ParaStor中标电子所云存储项目，项目金额600万+。</dt>
+						</dl>			
+					</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>2017</td>
+					<td>2017-08-18</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">1.DS800-G35增加8TB NL_SAS磁盘支持，目前已加入BOM，可正常核价及下单
+					</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>2017</td>
+					<td>2017-08-18</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1.ParaStor V2.5.0 产品已发布，新增RDMA、小文件聚合、NAS分区、DNS负载均衡及QoS等功能，单存储节点（4U36，单口FDR，RDMA）性能可达2.5GB/s。</dt>
+						<dd>产品手册详见：OA系统->产品管理->存储产品资料->ParaStor->曙光ParaStor产品用户手册</dd>
+						<dt>2.近期预发布了ParaStor300视频监控系统，无需单独索引节点，全4U36存储节点配置，集管理、视频服务、存储功能于一体，有效降低视频监控平台构建成本。</dt>
+						<dd>相关资料详见：OA系统->产品管理->存储产品资料->ParaStor->曙光ParaStor视频监控系统</dd>
+						<dt>3.ParaStor300在生物基因应用场景使用集群NAS协议，网络有内部和外部之分，网络可选10Gb/IB/OPA，OStor数据节点内存至少64GB。</dt>
+						<dt>4.ParaStor300主要生产环节包括：组装、初检、老化、终检、联调和打包。下单后从排产开始到入库完成的时间如下：</dt>
+						<dd>第一类：物料齐全并且产能足够的情况下，订单中只有ParaStor产品时，生产时间为：</dd>
+						<dd>① 存储节点个数＜8台，5天；</dd>
+						<dd>② 存储节点个数≥8且＜24，6天；</dd>
+						<dd>③ 存储节点个数≥24，8天；</dd>
+						<em>说明：存储节点包括管理节点、索引节点和数据节点。</em>
+						<dd>第二类：其他情况下，生产时间为：</dd>
+						<dd>① 订单中只有ParaStor产品，订单排产后物料不全时，物料具备后按照第一类计算；</dd>
+						<dd>② 订单中只有ParaStor产品，生产过程中每出现一次故障，完成时间往后延迟1天；</dd>
+						<dd>③ 订单中除ParaStor产品外，含其他产品（HPC、服务器、虚拟化等），以最耗时的联调产品时间为准；</dd>
+						<dd>④ 特殊时期（630、1230、多个订单同时到达天潮组需要联调），需排队等候联调。</dd>
+					</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>2017</td>
+					<td>2017-07-14</td>
+					<td>磁盘阵列</td>
+					<td>产品案例</td>
+					<td style="text-align: left;">1.DS800磁盘阵列入围中石化存储集采，项目金额千万级别。
+					</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>2017</td>
+					<td>2017-07-14</td>
+					<td>云存储</td>
+					<td>产品案例</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>
+						1.视频监控行业，ParaStor中标宜昌城市视频监控云市级平台，存储规模10PB。</dt>
+						<dt>2.专利行业，ParaStor中标国家专利局海量小文件存储项目（1.5PB），10个oPara元数据节点，支持过100亿专利文件存储。</dt>
+						<dt>3.信息化行业，ParaStor中标广东省国土资源厅3套分布式云存储项目，存储规模1PB。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>2017</td>
+					<td>2017-07-14</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">1.DS800-G25(H)系列产品即将预停产，预计最后下单时间8月~9月，后续项目可使用DS800-G35（H）升级产品替代。<br>
+					</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>2017</td>
+					<td>2017-07-14</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl><dt>1.更新ParaStor配置及报价表模板，NAS和POSIX应用场景二选一，NAS场景网络有内部和外部之分，内部网络必选，默认配置双口万兆网络和光口万兆交换机，可选IB网络（FDR、EDR、OPA）和IB交换机；POSIX场景只有内部网络，交换机可选。</dt>
+						<dd>详见OA系统->产品管理->存储产品资料->曙光ParaStor配置工具</dd>
+						<dt>2.ParaStor系统硬盘扩容，下单BOM号为60000091。</dt>
+						<dt>3.更新ParaStor用户案例EXCEl表（项目更新至2017年6月30日），可按照规模和金额筛选。</dt>
+						<dd>详见OA系统->解决方案->成功案例集锦->存储成功案例</dd>
+						<dt>4.ParaStor产品增加新资质认证，具备“云测评”证书，投标可写入控标参数。</dt>
+						<dd>详见OA系统->产品管理->存储产品资料->曙光ParaStor云存储认证资质</dd>
+						<dt>5.ParaStor T系列产品（双机NAS）最大可支持6TB磁盘，可用空间144TB，不支持100Gb OPA和Infiniband网络。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>2017</td>
+					<td>2017-06-19</td>
+					<td>云存储</td>
+					<td>产品案例</td>
+					<td style="text-align: left;">
+						<dl><dt>1.石油行业，中国石油化工股份有限公司采购2PB容量ParaStor云存储系统，在对比测试中功能与性能优于浪潮AS13000而胜出。</dt>
+						<dt>2.气象环保行业，ParaStor中标1PB国家海洋局第一海洋研究所分布式存储项目。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>2017</td>
+					<td>2017-06-19</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+<dl>
+	<dt>					1.6月初已正式发布DS800-G35（H），可通过系统核价及下单，相同缓存规格下，DS800-G35系列比DS800-G25H主柜价格有30%以上优势 。DS800-G35产品可支持NAS功能，但目前仅提供测试版本，不能用于生产环境。如需测试版软件请联系产品经理。</dt>
+						<dt>2.已上传 DS800-G35相关文档至OA系统，包含售前/售后PPT、技术白皮书、方案素材库、产品配置指南、用户手册等。</dt>
+						<em>详见OA系统->产品管理->存储产品资料->磁盘阵列。</em>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>2017</td>
+					<td>2017-06-19</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1.已上传ParaStor视频监控系统产品相关文档至OA，产品介绍、技术白皮书和控标参数抢先看。</dt>
+						<dd>详见OA系统->产品管理->存储产品资料->曙光ParaStor视频监控系统。</dd>
+						<dt>2.ParaStor产品通过了中国电子技术标准化研究院制定的《信息技术 云数据存储与管理 基于对象的云数据存储应用接口》标准验证测试，预计月底可从OA下载证书和测试报告。</dt>
+						<dt>3.预计6月底更新ParaStor BOM，NAS和POSIX两种场景选其一，NAS下单配置中，网络有内部和外部之分，内部网络必选，默认配置双口万兆网络和光口万兆交换机，可选IB网络（FDR、EDR、OPA）；POSIX下单配置只有内部网络，交换机可选。</dt>
+						<dt>4.存储万兆以太网可选锐捷48光口二层万兆交换机（BOM号89000364），相比之前H3C万兆交换机价格有35%以上的优势 。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2017</td>
+					<td>2017-05-19</td>
+					<td>磁盘阵列</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1.DS900中标某公安局项目，项目金额百万级别。</dt>
+						<dt>2.邮储银行启动中低端磁盘阵列的首次采购，曙光获得30套DS600的采购份额。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2017</td>
+					<td>2017-05-19</td>
+					<td>云存储</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+<dl>
+		<dt>				1.石油行业，中国石油集团东方地球物理勘探公司采购2PB容量ParaStor云存储系统，累计采购8PB+，性能受到用户青睐。</dt>
+						<dt>2.金融行业，江阴农村商业银行采购一套ParaStor T系列双机NAS存储，江苏同类用户累计采购4+套，系统上线运行稳定。</dt>
+	</dl>				</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2017</td>
+					<td>2017-05-19</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1.存储产品控标参数更新，增加DS800-G35(H)、DS900新产品相关内容</dt>
+						<dt>2.磁盘阵列参数详表更新，增加DS800-G35(H)、DS900新产品相关内容</dt>
+						<dd>详见OA系统->产品管理->存储产品资料->存储产品销售工具</dd>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2017</td>
+					<td>2017-05-19</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1.ParaStor V2.3版本新增RDMA、小文件聚合、NAS分区、DNS负载均衡及QoS等功能，单存储节点（4U36，双万兆网络）性能可达1.5GB/s，单存储节点（4U36，56Gb/s IB+RDMA）性能可达2.8GB/s，更多性能数据和新用户部署请咨询产品经理。 </dt>
+						<dt>2.更新官网海量数据产品系列产品介绍，详情可登录查看。</dt>
+						<dt>3.欢迎下载ParaStor演示和产品宣传视频，下载地址：链接：http://pan.baidu.com/s/1pL6Xc5X密码：xqr1 </dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>2017</td>
+					<td>2017-05-04</td>
+					<td>云存储</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1.科大讯飞持续采购3套1PB存储系统（2016年2套，2017年1套），分别用于备份、云盘和语音识别应用，系统运行稳定。</dt>
+						<dt>2.上海勋立信息科技有限公司持续采购4套存储系统，应用软件+Hadoop+ParaStor的一体化方案上线运行稳定。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>2017</td>
+					<td>2017-05-04</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>	
+						<dt>1.DS800-G35（H）将于5月初预发布，是DS800-G25（H）的升级产品，主要规格</dt>
+						<dd>双控最大256GB缓存，板载1Gb+10Gb接口，双控2-4块扩展卡，软件功能与DS800-G25（H）基本相同，增加高级性能监控功能，价格竞争力优于上代产品。现阶段可在项目中推广，近日报价系统更新后可以核价，预计6月初可正式供货。</dd>
+						<dt>2.DS800-G30将于5月预发布，产品定位：企业级中高端存储产品；主要规格</dt><dd>双控64GB-256GB缓存，板载10Gb×2接口，双控2-4块扩展卡，支持4*16Gb FC，软件功能：SSD Cache、自动精简配置、快照等。现阶段可以在项目中推广，预计5月中下旬上报价系统，6月份正式发布。</dd>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>2017</td>
+					<td>2017-05-04</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+<dl>
+		<dt>				1.更新ParaStor BOM，NAS和POSIX两种场景选其一</dt><dd>NAS下单配置中，网络有内部和外部之分，内部网络必选，默认配置双口万兆网络 和光口万兆交换机，可选IB网络（FDR、EDR、OPA）；</dd>
+			<dd>POSIX下单配置只有内部网络，交换机可选，预计6月正式调整。</dd>
+						<dt>2.新增锐捷48光口二层万兆交换机，BOM号89000364，价格优势明显。</dt>
+						<dt>3.5月中旬预发布ParaStor视频监控一体机，采用4U36存储节点，集管理、视频服务和存储功能于一体，支持GB28181/ONVIF标准前端接入，支持大数据应用分析，可在视频监控项目中推广，正式供货在6月份。</dt>
+						<dt>4.更新ParaStor重要用户案例EXCEl表（项目更新至2017年4月），可按照规模和金额筛选。</dt>
+						<em>详见OA系统->解决方案->成功案例集锦->存储成功案例</em>
+	</dl>				</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>存储服务器</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1、企业业务，中兴通信，S640-G20存储服务器，项目规模：100万以上</dt>
+						<dt>2、视频监控，淮安公安，S640-G20存储服务器，项目规模：50万以上</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>磁盘阵列</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">1、军工某航天用户，中标两套DS900异地容灾方案
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>云存储</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+						<dt>1、广电媒体行业，央视国际网络有限公司（CNTV），扩容2oPara+22oStor（3PB）</dt>
+						<dt>2、视频监控行业，中电建（广东）中开高速公路有限公司，下单2oPara+8oStor（1.72PB）</dt>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>灾备</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1、DBStor100-U预计4月21日进行软件升级。</dt>
+						<dt>2、新版本软件采用Web管理方式；支持多流传输，提高备份效率；支持更多的虚拟化、数据库、操作系统版本。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>存储服务器</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1、S640-G20和I240-G20的“前面板(无LED)”可选件已停用，统一整合为“前面板（含LED）”可选。</dt>
+						<dt>2、S640-G20的“外插硬盘控制器”机型全部停用，统一整合为“板载硬盘控制器”机型，降低整机成本。</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+<dl>
+							<dt>1、DS800-G30计划4月底预发布，Q2底进行正式发布。</dt>
+						<dt>2、软件功能丰富，覆盖盘阵主流功能。</dt>
+	</dl>				</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2017</td>
+					<td>2017-04-12</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+<dl><dt>
+						1、下发《ParaStor过保项目 &amp; 驻场服务收费标准》 </dt>
+						<dt>2、更新《曙光ParaStor云存储系统_售前PPT》，加入POSIX/NAS客户端兼容性列表及典型网络配置指导 </dt>
+						<dt>3、ParaStor视频监控专用存储系统（BOM号98000974），相比通用ParaStor存储性价比更优。</dt>
+	</dl>				</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2017</td>
+					<td>2017-03-20</td>
+					<td>云存储</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+						<dl>
+						<dt>1、ParaStor产品新增资质认证：</dt>
+						<dd>1）VMware vsphere 6.0以上版本NAS Storage认证，可提供VMware兼容性认证官网链接及截图</dd>
+						<dd>2）通过NCTC出具的测试报告（NCTC，国家电子计算机质量监督检验中心）</dd>
+						<em>详见OA系统->存储产品资料->ParaStor->曙光ParaStor云存储认证资质</em>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2017</td>
+					<td>2017-03-20</td>
+					<td>磁盘阵列</td>
+					<td>产品动态</td>
+					<td style="text-align: left;">
+<dl>
+	<dt>
+						DS800-G35（H）产品将于Q2发布，主要规格如下：</dt>
+						<dd>64GB-256GB缓存，板载1GbE+10GbE主机接口，可扩展；</dd>
+						<dd>软件功能与DS800-G25（H）相同；</dd>
+						<dd>性价比高于上一代产品 </dd>
+	</dl>				</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2017</td>
+					<td>2017-03-20</td>
+					<td>云存储</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1、石油行业 中国石油勘探开发研究院西北分院计算机技术研究所 2oPara+12oStor </dt>
+						<dt>2、视频监控 中国移动通信集团湖北有限公司 2MGR+2oPara+33oStor</dt>
+					</dl>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2017</td>
+					<td>2017-03-20</td>
+					<td>磁盘阵列</td>
+					<td>新增案例</td>
+					<td style="text-align: left;">
+						<dl>
+							<dt>1、军工某千万级别集采项目，DS800系列磁盘阵列中标</dt>
+							<dt>2、军工某云计算项目，中标6套DS800系列双活存储</dt>
+						</dl>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>存儲項目信息錄入頁面</title>
+  <link rel="stylesheet" href="/static/s/style.css" media="screen" type="text/css" />
+  <style type="text/css">
+    .txt {
+      width: 50%;
+      background: #FFF;
+      margin: 0 0 5px;
+      padding: 4px;
+      border-width: 1px;    
+      border-style: inset;    
+      border-color: initial;    
+      border-image: initial;
+      font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container" >  
+  <form id="contact" action="/project_input" method="post">
+    <h3 style="margin-bottom: 10px;">項目信息錄入</h3>
+    <fieldset>
+      <input name="customer" placeholder="客戶名稱" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input name="pname" placeholder="項目名稱" type="text" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="開標日期" type="date" name="dt" tabindex="3" class="txt" style="width: 70%"> 
+      <input name="dt" type="radio" value="1990-10-01" onclick="if(this.c==1){this.c=0;this.checked=0} else this.c=1" style="margin-left: 15px; margin-right: 5px;" tabindex="4"/> <font style="color: #232121; font-size: 14px">無法確定</font>
+    </fieldset>
+     <fieldset>
+      <select name="city" class="txt" tabindex="5">
+          <option value ="A-郑州">A-鄭州</option>
+          <option value ="B-开封">B-開封</option>
+          <option value ="C-洛阳">C-洛陽</option>
+          <option value ="D-平顶山">D-平頂山</option>
+          <option value ="E-安阳">E-安陽</option>
+          <option value ="F-鹤壁">F-鶴壁</option>
+          <option value ="G-新乡">G-新鄉</option>
+          <option value ="H-焦作">H-焦作</option>
+          <option value ="J-濮阳">J-濮陽</option>
+          <option value ="K-许昌">K-許昌</option>
+          <option value ="L-漯河">L-漯河</option>
+          <option value ="M-三门峡">M-三門峽</option>
+          <option value ="N-商丘">N-商丘</option>
+          <option value ="P-周口">P-周口</option>
+          <option value ="Q-驻马店">Q-駐馬店</option>
+          <option value ="R-南阳">R-南陽</option>
+          <option value ="S-信阳">S-信陽</option>
+          <option value ="U-济源">U-濟源</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <input placeholder="總金額" name="count_sum" type="number" tabindex="6"  class="txt">
+    </fieldset>
+    <fieldset>
+      <input placeholder="存儲金額" name="ds_sum" type="number" tabindex="7"  class="txt">
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="配置" name="config" tabindex="8" ></textarea>
+    </fieldset>
+    <fieldset>
+      <select name="win_manu" class="txt" tabindex="9">
+          <option value ="else">中標廠商</option>
+          <option value ="sugon">曙光</option>
+          <option value="huawei">華為</option>
+          <option value="inspur">浪潮</option>
+          <option value ="h3c">h3c</option>
+          <option value="macrosan">宏杉</option>
+          <option value="lenovo">聯想</option>
+          <option value ="ibm">IBM</option>
+          <option value="dell">DELL</option>
+          <option value="emc">EMC</option>
+          <option value ="netapp">NetApp</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <input name="partner" placeholder="集成商" type="text" tabindex="10" >
+    </fieldset>
+     
+    <fieldset>
+      <input name="zbgs" placeholder="招標公司" type="text" tabindex="11" >
+    </fieldset>
+    <fieldset>
+       <select name="isJoin" class="txt" tabindex="12">
+          <option value ="1">曙光參與</option>
+          <option value ="0">曙光未參與</option> 
+          <option value ="2">未知</option>          
+      </select>
+    </fieldset>
+    <fieldset>
+      <textarea name="ps" placeholder="備註" tabindex="13" ></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">確定</button>
+    </fieldset>
+     <h4>下拉菜單不確定保持默認即可！ 單位：萬</h4>
+  </form>
+</div>
+</body>
+</html>

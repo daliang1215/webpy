@@ -1,0 +1,15 @@
+$def with (name,lst,rootdir)
+
+<br />
+<div align="center"><a href="/xxyl" target="_self">回收音机主目录</a> </div>
+<a href="javascript:window.history.go(-1);" target="_self">後退</a> 
+<a href="javascript:window.history.go(1);" target="_self">前進</a> 
+<hr />
+$for i in range(0,len(lst)):
+	$if not lst[i].startswith('.'):
+		<a href="/xxyl?rootdir=$rootdir/$lst[i]" > $lst[i] </a> <br />
+<hr />
+<a href="javascript:window.history.go(-1);" target="_self">後退</a> 
+<a href="javascript:window.history.go(1);" target="_self">前進</a> 
+<div font-size="20px" color="#1d3c41" align="center">目前已實現之功能：1.城市空氣質量2.自動短信、電話3.文本到語音4.收音機(finished:city list) 下一步計劃：室內PM2.5、語音識別、智能電路、娛樂系統、手機APP等</div> 
+<div font-size="20px" color="#1d3c41" align="center">Powered by efeichn.ddns.net!</div> 

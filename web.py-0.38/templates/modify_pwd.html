@@ -1,0 +1,50 @@
+$def with (name)
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>修改密碼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link href="/static/zui.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background-color: #eeeeee;">
+	<div class="panel panel-danger"
+		style="width:55%; margin: auto; margin-top: 150px; border: 1px solid #006d45;">
+		<div class="panel-heading" style="background-color: #006d45; color: #ffffff;font-size: 14px;">修改密碼頁面
+		</div>
+		
+		<div class="panel-body" style="height: 300px;background-color: #ffffff;">
+			<form method="post" action="/modify_pwd?username=$name" class="form-horizontal" name="addForm" id="addForm" style="margin: 0px;">
+				<table width="90%" cellpadding="3" cellspacing="3" border="0" height="250px">
+					<tr>
+						<td rowspan="3" valign="top" width="260px">
+							<img src="/static/344.PNG" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" height="60px"><label class="control-label" style="font-size: 15px;">新&nbsp;密&nbsp;碼：<label /></td>
+						<td>
+							<input class="form-control" name="password" id="userPwd"  placeholder="請錄入新密碼"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2" style="color:#006d45;" valign="top">
+						<br />
+						<button type="submit" class="btn btn-default btn-success" style="width: 100px;margin-left:100px;">修&nbsp;&nbsp;改</button><br /><br />
+	
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div align="center" style="color:#006d45;">感謝好友老化提供技術援助</div>
+	
+</body>
+</html>
+
