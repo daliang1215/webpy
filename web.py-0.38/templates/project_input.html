@@ -1,3 +1,5 @@
+$def with(partner,zbgs)
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,26 +36,27 @@
       <input name="dt" type="radio" value="1990-10-01" onclick="if(this.c==1){this.c=0;this.checked=0} else this.c=1" style="margin-left: 15px; margin-right: 5px;" tabindex="4"/> <font style="color: #232121; font-size: 14px">無法確定</font>
     </fieldset>
      <fieldset>
-      <select name="city" class="txt" tabindex="5">
-          <option value ="A-郑州">A-鄭州</option>
-          <option value ="B-开封">B-開封</option>
-          <option value ="C-洛阳">C-洛陽</option>
-          <option value ="D-平顶山">D-平頂山</option>
-          <option value ="E-安阳">E-安陽</option>
-          <option value ="F-鹤壁">F-鶴壁</option>
-          <option value ="G-新乡">G-新鄉</option>
-          <option value ="H-焦作">H-焦作</option>
-          <option value ="J-濮阳">J-濮陽</option>
-          <option value ="K-许昌">K-許昌</option>
-          <option value ="L-漯河">L-漯河</option>
-          <option value ="M-三门峡">M-三門峽</option>
-          <option value ="N-商丘">N-商丘</option>
-          <option value ="P-周口">P-周口</option>
-          <option value ="Q-驻马店">Q-駐馬店</option>
-          <option value ="R-南阳">R-南陽</option>
-          <option value ="S-信阳">S-信陽</option>
-          <option value ="U-济源">U-濟源</option>
-      </select>
+	     <input placeholder="地市名" type="text" name="city" list="city_list" tabindex="5" >
+	     <datalist id="city_list" > 
+          	<option value ="A-郑州" />
+          	<option value ="B-开封" />
+          	<option value ="C-洛阳" />
+          	<option value ="D-平顶山" />
+          	<option value ="E-安阳" />
+          	<option value ="F-鹤壁" />
+          	<option value ="G-新乡" />
+          	<option value ="H-焦作" />
+          	<option value ="J-濮阳" />
+          	<option value ="K-许昌" />
+          	<option value ="L-漯河" />
+          	<option value ="M-三门峡" />
+          	<option value ="N-商丘" />
+          	<option value ="P-周口" />
+          	<option value ="Q-驻马店" />
+          	<option value ="R-南阳" />
+          	<option value ="S-信阳" />
+          	<option value ="U-济源" />
+	     </datalist>
     </fieldset>
     <fieldset>
       <input placeholder="總金額" name="count_sum" type="number" tabindex="6"  class="txt">
@@ -65,26 +68,35 @@
       <textarea placeholder="配置" name="config" tabindex="8" ></textarea>
     </fieldset>
     <fieldset>
-      <select name="win_manu" class="txt" tabindex="9">
-          <option value ="else">中標廠商</option>
-          <option value ="sugon">曙光</option>
-          <option value="huawei">華為</option>
-          <option value="inspur">浪潮</option>
-          <option value ="h3c">h3c</option>
-          <option value="macrosan">宏杉</option>
-          <option value="lenovo">聯想</option>
-          <option value ="ibm">IBM</option>
-          <option value="dell">DELL</option>
-          <option value="emc">EMC</option>
-          <option value ="netapp">NetApp</option>
-      </select>
+	     <input placeholder="中標廠商" type="text" name="win_manu" list="manu_list" tabindex="9" >
+	     <datalist id="manu_list" > 
+          	<option value ="曙光" label="Sugon"/>
+          	<option value ="华为" label="HuaWei"/>
+          	<option value ="浪潮" label="Inspur"/>
+          	<option value ="新华三" label="H3C"/>
+          	<option value ="宏杉" label="MacroSAN"/>
+          	<option value ="联想" label="Lenovo"/>
+          	<option value ="IBM" />
+          	<option value ="DELL" />
+          	<option value ="EMC" />
+          	<option value ="NetApp" />
+	     </datalist>
     </fieldset>
     <fieldset>
-      <input name="partner" placeholder="集成商" type="text" tabindex="10" >
+      <input name="partner" placeholder="集成商" type="text" tabindex="10" list="p_list">
+      <datalist id="p_list">
+      	$for i in partner:
+		<option value=$i.partner />
+
+      </datalist>
     </fieldset>
-     
     <fieldset>
-      <input name="zbgs" placeholder="招標公司" type="text" tabindex="11" >
+      <input name="zbgs" placeholder="招標公司" type="text" tabindex="11" list="zbgs_list">
+      <datalist id="zbgs_list">
+	      $for i in zbgs:
+	      	<option value="$i.zbgs" />
+
+      </datalist>
     </fieldset>
     <fieldset>
        <select name="isJoin" class="txt" tabindex="12">
@@ -102,5 +114,8 @@
      <h4>下拉菜單不確定保持默認即可！ 單位：萬</h4>
   </form>
 </div>
+$partner 
+<hr />
+$zbgs
 </body>
 </html>

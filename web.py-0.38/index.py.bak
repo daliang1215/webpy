@@ -193,11 +193,7 @@ class login:
 	
 class project_input:
     def GET(self):
-        db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
-        partner=db.select('project',where="partner!=''", order="partner", what="DISTINCT partner");
-        zbgs=db.select('project',where="zbgs!=''", order="zbgs", what="DISTINCT zbgs");
-	return render.project_input(partner,zbgs)
-
+	return render.project_input()
     def POST(self):
         d = web.input()
         customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps=d.customer,\
