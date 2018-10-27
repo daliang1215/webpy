@@ -219,12 +219,10 @@ class partner_input:
 
     def POST(self):
         d = web.input()
-        customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps=d.customer,\
-                d.pname,d.dt,d.city,d.count_sum,d.ds_sum,d.config,d.win_manu,d.partner,d.zbgs,d.isJoin,d.ps
-        print customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps
+        company,city,attr,ps=d.company,d.city,d.attr,d.ps
+        print company,city,attr,ps
         db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
-        db.insert('project',customer=customer,pname=pname,dt=dt,city=city,count_sum=count_sum,ds_sum=ds_sum,
-                config=config,win_manu=win_manu,partner=partner,zbgs=zbgs,isJoin=isJoin,ps=ps)
+        db.insert('partner',company=company,city=city,attribute=attr,ps=ps)
         info='partner insert'
         stats='success'
         return render.stats(info,stats)
