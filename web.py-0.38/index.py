@@ -207,9 +207,10 @@ class project_input:
         db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
         db.insert('project',customer=customer,pname=pname,dt=dt,city=city,count_sum=count_sum,ds_sum=ds_sum,
                 config=config,win_manu=win_manu,partner=partner,zbgs=zbgs,isJoin=isJoin,ps=ps)
-        info='project'
+        info='project insert'
         stats='success'
-        return render.stats(info,stats)
+        url='project_input'
+        return render.stats(info,stats,url)
 
 class partner_input:
     def GET(self):
@@ -225,7 +226,8 @@ class partner_input:
         db.insert('partner',company=company,city=city,attribute=attr,ps=ps)
         info='partner insert'
         stats='success'
-        return render.stats(info,stats)
+        url='partner_input'
+        return render.stats(info,stats,url)
 
 class modify_pwd:
     def GET(self):
