@@ -1,0 +1,44 @@
+$def with(vendor_info)
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>廠商訊息列表 | Jimmy Chen | jimmy.f.chen@gmail.com</title>
+	<link href="/static/v/0.2/themes/united.min.css" rel="stylesheet">
+	<link href="/static/v/0.2/strapdown.css" rel="stylesheet">
+	<link href="/static/v/0.2/themes/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+<body style="">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner"> 
+			<div class="container"> 
+				<div id="headline" class="brand">廠商訊息列表 | Jimmy Chen | jimmy.f.chen@gmail.com</div>
+			</div> 
+		</div>
+	</div>
+	<div class="container" id="content">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>廠商</th>
+					<th>E文</th>
+				</tr>
+			</thead>
+			<tbody>
+				$for i in vendor_info:
+				<tr>
+					<td>$i.id</td>
+					<td>$i.cname</td>
+					<td>$i.ename</td>
+				</tr>
+			</tbody>
+		</table>
+		<blockquote>
+			<p><strong>updated by Jimmy Chen</strong></p>
+			<p><strong>Date: 2018-6-01 儿童节</strong></p>
+		</blockquote>
+	</div>
+</body>
+</html>

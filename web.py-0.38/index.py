@@ -46,6 +46,7 @@ urls = (
     '/modify_pwd','modify_pwd',
     '/s','dawning_ds',
     '/city_info','city_info',
+    '/vendor_input','vendor_input',
     '/project_input','project_input',
     '/partner_input','partner_input',
     '/dawning_ds_dynamic','dawning_ds_dynamic',
@@ -221,6 +222,24 @@ class city_info:
         db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
         city_info = db.select('city')
 	return render.city_info(city_info)
+class vendor_input:
+    def GET(self):
+        db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
+        vendor_info=db.select('vendor')
+	return render.vendor_info(vendor_info)
+
+    def POST(self):
+        d = web.input()
+        customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps=d.customer,\
+                d.pname,d.dt,d.city,d.count_sum,d.ds_sum,d.config,d.win_manu,d.partner,d.zbgs,d.isJoin,d.ps
+        print customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps
+        db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
+        db.insert('project',customer=customer,pname=pname,dt=dt,city=city,count_sum=count_sum,ds_sum=ds_sum,
+                config=config,win_manu=win_manu,partner=partner,zbgs=zbgs,isJoin=isJoin,ps=ps)
+        info='project insert'
+        stats='success'
+        url='project_input'
+        return render.stats(info,stats,url)
 
 class project_input:
     def GET(self):
