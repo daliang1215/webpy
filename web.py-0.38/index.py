@@ -1,6 +1,10 @@
 #encoding utf-8
 import sys,os,web,os.path,urllib,urllib2,commands,time,json,hashlib
-
+#from handle import Handle
+from web.wsgiserver import CherryPyWSGIServer
+#
+CherryPyWSGIServer.ssl_certificate = "/mnt/st/ssl/efeichn.top.crt"
+CherryPyWSGIServer.ssl_private_key = "/mnt/st/ssl/efeichn.top.key"
 
 #define const name 
 gpio_arr=["12","16","18","20","21","23","24","25"]
@@ -23,6 +27,8 @@ render = web.template.render('templates/')
 urls = (
     '/', 'index',
     '/t', 't',
+    # /room just test switch in homeassistant , delete if not use
+    '/room','room',
     '/light', 'light',
     '/setlight', 'setlight',
     '/checklight', 'checklight',
@@ -39,6 +45,7 @@ urls = (
     '/voice','voice',
     '/modify_pwd','modify_pwd',
     '/s','dawning_ds',
+    '/city_info','city_info',
     '/project_input','project_input',
     '/partner_input','partner_input',
     '/dawning_ds_dynamic','dawning_ds_dynamic',
@@ -53,6 +60,23 @@ class index:
 class t:
     def GET(self):
 	return render.t()
+
+class room:
+    def GET(self):
+	data = web.input()
+        if len(data)==0 :
+            return render.index("no parameter")
+        else:
+            roomid,state = data.roomid,data.state
+            print roomid
+            print state
+            if state=="stats" : 
+                return commands.getoutput('cat /tmp/room_stats') 
+            else:
+                shell = "/bin/echo "+state+" > /tmp/room_stats"
+                os.system(shell)
+                return state
+
 
 class dawning_ds:
     def GET(self):
@@ -192,6 +216,12 @@ class login:
 	else:
 		raise web.seeother('/?err=pwderr') 
 	
+class city_info:
+    def GET(self):
+        db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
+        city_info = db.select('city')
+	return render.city_info(city_info)
+
 class project_input:
     def GET(self):
         db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')

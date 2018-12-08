@@ -1,0 +1,71 @@
+$def with(partner)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>存儲項目信息錄入頁面</title>
+  <link rel="stylesheet" href="/static/s/style.css" media="screen" type="text/css" />
+  <style type="text/css">
+    .txt {
+      width: 50%;
+      background: #FFF;
+      margin: 0 0 5px;
+      padding: 4px;
+      border-width: 1px;    
+      border-style: inset;    
+      border-color: initial;    
+      border-image: initial;
+      font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container" >  
+  <form id="contact" action="/partner_input" method="post">
+    <h3 style="margin-bottom: 10px;">集成商信息錄入</h3>
+    <fieldset>
+      <input name="company" placeholder="集成商名稱" type="text" list="p_list" tabindex="1" required autofocus>
+      <datalist id="p_list">
+      	$for i in partner:
+		<option value=$i.company />
+
+      </datalist>
+    </fieldset>
+     <fieldset>
+	     <input placeholder="地市名" type="text" name="city" list="city_list" tabindex="2" >
+	     <datalist id="city_list" > 
+          	<option value ="A-郑州" />
+          	<option value ="B-开封" />
+          	<option value ="C-洛阳" />
+          	<option value ="D-平顶山" />
+          	<option value ="E-安阳" />
+          	<option value ="F-鹤壁" />
+          	<option value ="G-新乡" />
+          	<option value ="H-焦作" />
+          	<option value ="J-濮阳" />
+          	<option value ="K-许昌" />
+          	<option value ="L-漯河" />
+          	<option value ="M-三门峡" />
+          	<option value ="N-商丘" />
+          	<option value ="P-周口" />
+          	<option value ="Q-驻马店" />
+          	<option value ="R-南阳" />
+          	<option value ="S-信阳" />
+          	<option value ="U-济源" />
+	     </datalist>
+    </fieldset>
+    <fieldset>
+      <input placeholder="行業屬性" name="attr" type="text" tabindex="3"  class="txt">
+    </fieldset>
+    <fieldset>
+      <textarea name="ps" placeholder="備註" tabindex="4" ></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">確定</button>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>
