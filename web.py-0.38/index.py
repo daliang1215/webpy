@@ -48,6 +48,7 @@ urls = (
     '/city_info','city_info',
     '/vendor_input','vendor_input',
     '/project_input','project_input',
+    '/p_input','p_input',
     '/partner_input','partner_input',
     '/dawning_ds_dynamic','dawning_ds_dynamic',
     '/dawning_ds_tips','dawning_ds_tips'
@@ -233,6 +234,33 @@ class vendor_input:
         customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps=d.customer,\
                 d.pname,d.dt,d.city,d.count_sum,d.ds_sum,d.config,d.win_manu,d.partner,d.zbgs,d.isJoin,d.ps
         print customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps
+        db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
+        db.insert('project',customer=customer,pname=pname,dt=dt,city=city,count_sum=count_sum,ds_sum=ds_sum,
+                config=config,win_manu=win_manu,partner=partner,zbgs=zbgs,isJoin=isJoin,ps=ps)
+        info='project insert'
+        stats='success'
+        url='project_input'
+        return render.stats(info,stats,url)
+class p_input:
+    def GET(self):
+        db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
+        customer_list=db.select('customer',what="id,name");
+        city_list=db.select('city');
+        si_list=db.select('si',what="id,name");
+        bidding_list=db.select('bidding',what="id,name");
+        vendor_list=db.select('vendor');
+        expert_list=db.select('expert');
+	return render.p_input(customer_list,city_list,si_list,bidding_list,vendor_list,expert_list)
+
+    def POST(self):
+        d = web.input()
+        customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps=d.customer,\
+                d.pname,d.dt,d.city,d.count_sum,d.ds_sum,d.config,d.win_manu,d.partner,d.zbgs,d.isJoin,d.ps
+        print customer,pname,dt,city,count_sum,ds_sum,config,win_manu,partner,zbgs,isJoin,ps
+        ## need " XYZ " -> "XYZ", strip space.
+        ## "   XYZ   ".strip() = "XYZ"
+        ## "   XYZ   ".lstrip() = "XYZ   "
+        ## "   XYZ   ".rstrip() = "   XYZ"
         db = web.database(dbn='mysql', user='rock64', pw='iQQ', db='ha_ds')
         db.insert('project',customer=customer,pname=pname,dt=dt,city=city,count_sum=count_sum,ds_sum=ds_sum,
                 config=config,win_manu=win_manu,partner=partner,zbgs=zbgs,isJoin=isJoin,ps=ps)

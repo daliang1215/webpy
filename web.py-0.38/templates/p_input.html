@@ -1,0 +1,102 @@
+$def with(customer_list,city_list,si_list,bidding_list,vendor_list,expert_list)
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>存儲項目信息錄入頁面</title>
+	<link rel="stylesheet" href="/static/s/style.css" media="screen" type="text/css" />
+	<style type="text/css">
+	.txt {
+		width: 50%;
+		background: #FFF;
+		margin: 0 0 5px;
+		padding: 4px;
+		border-width: 1px;    
+		border-style: inset;    
+		border-color: initial;    
+		border-image: initial;
+		font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+
+	}
+</style>
+</head>
+<body>
+	<div class="container" >  
+		<form id="contact" action="/p_input" method="post">
+			<fieldset>
+				<input name="customer" placeholder="客戶名稱" type="text" tabindex="1" list="c_list" required autofocus>
+				<datalist id="c_list">
+					$for i in customer_list:
+					<option value=$i.id > $i.name </option>
+				</datalist>
+				<fieldset>
+				</fieldset>
+				<fieldset>
+					<input name="pname" placeholder="項目名稱" type="text" tabindex="2" required>
+				</fieldset>
+				<fieldset>
+					<input placeholder="開標日期" type="date" name="dt" tabindex="3" class="txt" style="width: 70%"> 
+					<input name="dt" type="radio" value="1990-10-01" onclick="if(this.c==1){this.c=0;this.checked=0} else this.c=1" style="margin-left: 15px; margin-right: 5px;" tabindex="4"/> <font style="color: #232121; font-size: 14px">無法確定</font>
+				</fieldset>
+				<fieldset>
+					<input placeholder="地市名" type="text" name="city" list="city_list" tabindex="5" >
+					<datalist id="city_list" > 
+						$for i in city_list:
+						<option value =$i.shortname label=$i.cityname />
+					</datalist>
+				</fieldset>
+				<fieldset>
+					<input placeholder="總金額" name="count_sum" type="number" tabindex="6"  class="txt" step="0.01">
+				</fieldset>
+				<fieldset>
+					<input placeholder="存儲金額" name="ds_sum" type="number" tabindex="7"  class="txt" step="0.01">
+				</fieldset>
+				<fieldset>
+					<textarea placeholder="配置" name="config" tabindex="8" ></textarea>
+				</fieldset>
+				<fieldset>
+					<input placeholder="中標廠商" type="text" name="win_manu" list="manu_list" tabindex="9" >
+					<datalist id="manu_list" > 
+						$for i in vendor_list:
+						<option value =$i.id label="$i.ename $i.cname"/>
+					</datalist>
+				</fieldset>
+				<fieldset>
+					<input name="partner" placeholder="集成商" type="text" tabindex="10" list="si_list">
+					<datalist id="si_list">
+						$for i in si_list:
+						<option value=$i.id >$i.name</option>
+					</datalist>
+				</fieldset>
+				<fieldset>
+					<input name="zbgs" placeholder="招標公司" type="text" tabindex="11" list="zbgs_list">
+					<datalist id="zbgs_list">
+						$for i in bidding_list:
+						<option value="$i.id" >$i.name</option>
+					</datalist>
+				</fieldset>
+				<fieldset>
+					<select name="isJoin" class="txt" tabindex="12">
+						<option value="0">曙光未參與</option> 
+						<option value="1">曙光參與</option>
+						<option value="2">未知</option>          
+					</select>
+				</fieldset>
+				<fieldset>
+					<textarea name="ps" placeholder="備註" tabindex="13" ></textarea>
+				</fieldset>
+				<fieldset>
+					<input name="expert" placeholder="專家" type="text" tabindex="14" list="expert_list">
+					<datalist id="expert_list">
+						$for i in expert_list:
+						<option value="$i.id" >$i.name $i.zhiwu 豫$i.cityshort</option>
+					</datalist>
+				</fieldset>
+				<fieldset>
+					<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">確定</button>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+	</html>
