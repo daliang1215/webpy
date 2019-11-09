@@ -3,8 +3,8 @@ import sys,os,web,os.path,urllib,urllib2,commands,time,json,hashlib
 #from handle import Handle
 from web.wsgiserver import CherryPyWSGIServer
 #
-CherryPyWSGIServer.ssl_certificate = "/mnt/st/ssl/efeichn.top.crt"
-CherryPyWSGIServer.ssl_private_key = "/mnt/st/ssl/efeichn.top.key"
+CherryPyWSGIServer.ssl_certificate = "/mnt/st/ssl/efeichn.wang.crt"
+CherryPyWSGIServer.ssl_private_key = "/mnt/st/ssl/efeichn.wang.key"
 
 #define const name 
 gpio_arr=["12","16","18","20","21","23","24","25"]
